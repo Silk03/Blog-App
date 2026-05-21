@@ -9,6 +9,16 @@ export async function getAllPosts(_, res) {
     }
 }
 
+export async function getPostById(req, res) {
+    try {
+        let post = await Post.findById(req.params.id);
+        if(!post) return res.status(404).json({message: "Post not found"});
+        res.status(200).json(post);
+    }catch (error) {
+        res.status(500).json({message: "Server Error"});
+    }
+}
+
 export async function createPost(req, res) {
     try{
         let {title, content} = req.body;

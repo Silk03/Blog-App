@@ -5,6 +5,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 let app = express();
 
+//MIDDLEWARE
+app.use(express.json())
+
+
 
 app.get("/api/blog", (req, res) => {
     res.send("Hello World");

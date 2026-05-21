@@ -11,7 +11,8 @@ app.get("/api/blog", (req, res) => {
 });
 
 
-connectDB();
+connectDB().then(() => {
 app.listen(5003, () => {
     console.log("Server is running on port 5003");
 }) 
+});

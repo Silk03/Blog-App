@@ -20,3 +20,15 @@ export async function createPost(req, res) {
         res.status(500).json({message: "Server Error"});
     }
 }
+
+export async function updatePost(req, res) {
+    try{
+       
+        let {title, content} = req.body;
+        let updatedPost = await Post.findByIdAndUpdate(req.params.id, {title, content}, {new: true});
+        if(!updatedPost) return res.status(404).json({message: "Post not found"});
+        res.status(200).json(updatedPost);
+    }catch (error) {
+        res.status(500).json({message: "Server Error"});
+    }
+}

@@ -1,5 +1,6 @@
 import express from 'express';
 import {connectDB} from './config/db.js';
+import postRoute from './routes/postRoute.js';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -10,9 +11,8 @@ app.use(express.json())
 
 
 
-app.get("/api/blog", (req, res) => {
-    res.send("Hello World");
-});
+
+app.use("/api/posts", postRoute);
 
 
 connectDB().then(() => {

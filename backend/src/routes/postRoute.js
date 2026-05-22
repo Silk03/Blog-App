@@ -3,6 +3,7 @@ import {getAllPosts, createPost, updatePost, deletePost, getPostById } from '../
 
 let router = express.Router();
 
+// Define routes for blog posts
 router.get("/", getAllPosts);
 router.get("/:id", getPostById);
 router.post("/", createPost);

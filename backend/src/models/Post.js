@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// Define the schema for a Post
 let postSchema = new mongoose.Schema({
     title: {
         type: String,

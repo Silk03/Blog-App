@@ -1,5 +1,6 @@
 import Post from '../models/Post.js';
 
+// Controller functions for handling blog post operations
 export async function getAllPosts(_, res) {
     try {
         let posts = await Post.find().sort({createdAt: -1});
